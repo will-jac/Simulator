@@ -64,6 +64,9 @@ echo
 echo "Fix directory and add emsdk_env.sh to PATH temporarily"
 echo
 
+# get the correct node version so we don't have to use the version set by emsdk
+NODE=$(which node)
+
 cd emsdk
 source emsdk_env.sh
 cd ..

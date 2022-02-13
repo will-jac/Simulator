@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+# if the $NODE variable is not set, set it before sourcing emsdk
+if [ -z "$NODE" ]; then
+NODE=$(which node)
+fi
+
 cd ..
 
 #Run the server
@@ -8,5 +14,7 @@ pwd
 cd emsdk
 source emsdk_env.sh
 cd ../simulator
-LIBWALLABY_ROOT=../libwallaby node express.js
+
+# run the node server on the correct version
+LIBWALLABY_ROOT=../libwallaby $NODE express.js
 
